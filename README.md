@@ -3,7 +3,7 @@ Remove ANSI escape sequences from a stream.
 
 ## Usage
 ```console
-cat escaped.txt | noesc > unescaped.txt
+cat test.txt | noesc
 ```
 
 ## Install
