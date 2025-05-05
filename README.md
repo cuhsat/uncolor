@@ -1,13 +1,12 @@
-# noesc
-Remove ANSI escape sequences from a stream.
+# unesc
+Remove ANSI escape sequences from the input stream.
 
 ## Usage
 ```console
-cat test.txt | noesc
+cat test.txt | unesc
 ```
 
 ## Install
-
 ```console
-go install github.com/cuhsat/noesc@latest
+go install github.com/cuhsat/unesc@latest
 ```
