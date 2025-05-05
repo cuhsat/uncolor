@@ -1,3 +1,3 @@
-module github.com/cuhsat/noesc
+module github.com/cuhsat/unesc
 
 go 1.24.2
