@@ -1,4 +1,3 @@
-// based on https://github.com/kilobyte/colorized-logs/blob/master/ansi2txt.c
 package main
 
 import (
@@ -37,7 +36,7 @@ func main() {
 	ch := make(chan rune)
 
 	go read(ch)
-	
+
 	for r := range ch {
 		switch r {
 		case ESC:
@@ -55,7 +54,7 @@ func main() {
 						case BEL:
 							break
 						case ESC:
-							r = <-ch
+							<-ch
 							break
 						}
 					}
