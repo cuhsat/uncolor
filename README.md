@@ -1,12 +1,14 @@
 # uncolor
 Remove ANSI color escape sequences from the input stream.
 
-# Usage
+```console
+go install github.com/hiforensics/uncolor@latest
+```
+
+## Usage
 ```console
 cat test.txt | uncolor
 ```
 
-# Install
-```console
-go install github.com/hiforensics/uncolor@latest
-```
+## License
+Released under the [MIT License](LICENSE.md).
