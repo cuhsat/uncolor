@@ -1,3 +1,8 @@
+// Remove ANSI color escape sequences from the input stream.
+//
+// Usage:
+//
+//	cat FILE | uncolor
 package main
 
 import (
