@@ -7,7 +7,7 @@ go install github.com/hiforensics/uncolor@latest
 
 ## Usage
 ```console
-cat test.txt | uncolor
+$ cat test.txt | uncolor
 ```
 
 ## License
