@@ -14,28 +14,26 @@ const (
 	ESC = 27
 )
 
-func read(ch chan<- rune) {
-	br := bufio.NewReader(os.Stdin)
-
-	for {
-		r, _, err := br.ReadRune()
-
-		if err == io.EOF {
-			break
-		} else if err != nil {
-			panic(err)
-		} else {
-			ch <- r
-		}
-	}
-
-	close(ch)
-}
-
 func main() {
 	ch := make(chan rune)
 
-	go read(ch)
+	go func(ch chan<- rune) {
+		br := bufio.NewReader(os.Stdin)
+
+		for {
+			r, _, err := br.ReadRune()
+
+			if err == io.EOF {
+				break
+			} else if err != nil {
+				panic(err)
+			} else {
+				ch <- r
+			}
+		}
+
+		close(ch)
+	}(ch)
 
 	for r := range ch {
 		switch r {
@@ -47,25 +45,31 @@ func main() {
 						break
 					}
 				}
+
 			case ']':
 				if r = <-ch; r >= 0 && r <= '9' {
 					for r := range ch {
 						switch r {
+
 						case BEL:
 							break
+
 						case ESC:
 							<-ch
 							break
 						}
 					}
 				}
+
 			case '(', ')', '%':
 				<-ch
 			}
+
 		case CR:
 			if r := <-ch; r != LF {
 				fmt.Fprintf(os.Stdout, "%c", r)
 			}
+
 		default:
 			fmt.Fprintf(os.Stdout, "%c", r)
 		}

@@ -1,12 +1,12 @@
-# unesc
-Remove ANSI escape sequences from the input stream.
+# uncolor
+Remove ANSI color escape sequences from the input stream.
 
-## Usage
+# Usage
 ```console
-cat test.txt | unesc
+cat test.txt | uncolor
 ```
 
-## Install
+# Install
 ```console
-go install github.com/cuhsat/unesc@latest
+go install github.com/hiforensics/uncolor@latest
 ```
